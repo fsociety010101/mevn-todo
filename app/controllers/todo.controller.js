@@ -94,7 +94,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Todo.findByIdAndRemove(id)
+    Todo.findByIdAndDelete(id)
         .then(data => {
             if (!data) {
                 res.status(404).send({
