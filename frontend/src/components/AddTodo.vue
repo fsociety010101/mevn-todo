@@ -11,7 +11,7 @@
                 <input class="form-control" id="description" required v-model="todo.description" name="description" />
             </div>
 
-            <button @click="savetodo" class="btn btn-success">Submit</button>
+            <button @click="saveTodo" class="btn btn-success my-2">Submit</button>
         </div>
 
         <div v-else>
@@ -38,7 +38,7 @@ export default {
         };
     },
     methods: {
-        savetodo() {
+        saveTodo() {
             var data = {
                 title: this.todo.title,
                 description: this.todo.description

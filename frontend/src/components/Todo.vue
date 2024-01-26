@@ -13,22 +13,22 @@
 
             <div class="form-group">
                 <label><strong>Status:</strong></label>
-                {{ currentTodo.published ? "Published" : "Pending" }}
+                {{ currentTodo.published ? "Done" : "Undone" }}
             </div>
         </form>
 
-        <button class="badge badge-primary mr-2" v-if="currentTodo.published" @click="updatePublished(false)">
-            UnPublish
+        <button class="btn btn-primary me-2" v-if="currentTodo.published" @click="updatePublished(false)">
+            Done
         </button>
-        <button v-else class="badge badge-primary mr-2" @click="updatePublished(true)">
-            Publish
+        <button v-else class="btn btn-primary me-2" @click="updatePublished(true)">
+            Undone
         </button>
 
-        <button class="badge badge-danger mr-2" @click="deleteTodo">
+        <button class="btn btn-danger me-2" @click="deleteTodo">
             Delete
         </button>
 
-        <button type="submit" class="badge badge-success" @click="updateTodo">
+        <button type="submit" class="btn btn-success me-2" @click="updateTodo">
             Update
         </button>
         <p>{{ message }}</p>
@@ -44,7 +44,8 @@
 import TodoDataService from "../services/TodoDataService";
 
 export default {
-    name: "Todo",
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: "todos",
     data() {
         return {
             currentTodo: null,

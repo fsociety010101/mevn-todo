@@ -4,7 +4,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search by title" v-model="title" />
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="searchTitle">
+                    <button class="btn btn-outline-secondary ms-1" type="button" @click="searchTitle">
                         Search
                     </button>
                 </div>
@@ -19,7 +19,7 @@
                 </li>
             </ul>
 
-            <button class="m-3 btn btn-sm btn-danger" @click="removeAlltodos">
+            <button class="m-3 btn btn-sm btn-danger" @click="removeAllTodos">
                 Remove All
             </button>
         </div>
@@ -33,10 +33,13 @@
                     <label><strong>Description:</strong></label> {{ currentTodo.description }}
                 </div>
                 <div>
-                    <label><strong>Status:</strong></label> {{ currentTodo.published ? "Published" : "Pending" }}
+                    <label><strong>Status:</strong></label> {{ currentTodo.published ? "Done" : "Pending" }}
+                </div>
+                <div>
+                    <label><strong>Id:</strong></label> {{ currentTodo.id }}
                 </div>
 
-                <a class="badge badge-warning" :href="'/todos/' + currentTodo.id">
+                <a class="btn btn-warning my-2" :href="'/todos/' + currentTodo.id">
                     Edit
                 </a>
             </div>
@@ -62,7 +65,7 @@ export default {
         };
     },
     methods: {
-        retrievetodos() {
+        retrieveTodos() {
             TodoDataService.getAll()
                 .then(response => {
                     this.todos = response.data;
@@ -84,7 +87,7 @@ export default {
             this.currentIndex = index;
         },
 
-        removeAlltodos() {
+        removeAllTodos() {
             TodoDataService.deleteAll()
                 .then(response => {
                     console.log(response.data);
@@ -107,7 +110,7 @@ export default {
         }
     },
     mounted() {
-        this.retrievetodos();
+        this.retrieveTodos();
     }
 };
 </script>
