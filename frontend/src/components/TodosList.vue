@@ -19,7 +19,7 @@
                 </li>
             </ul>
 
-            <button class="m-3 btn btn-sm btn-danger" @click="removeAllTodos">
+            <button class="my-3 btn btn-sm btn-danger" @click="removeAllTodos">
                 Remove All
             </button>
         </div>
